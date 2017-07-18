@@ -34,26 +34,30 @@ public class ArrayList implements List {
     private void expand() {
         maxLen *= 2;
         Object[] newArray = new Object[maxLen];
-        for(int i=0;i<this.size;i++) {
-            newArray[i] = array[i];
-        }
+        System.arraycopy(array, 0, newArray, 0, this.size);
         array = newArray;
     }
 
     @Override
     public void clear() {
-
+        Object[] newArray = new Object[size];
+        System.arraycopy(array, 0, newArray, 0, this.size);
+        array = newArray;
         size = 0;
     }
 
     @Override
     public Object get(int i) {
-        return null;
+            return   (i > 0 && i < size) ? array[i] : null;
     }
 
     @Override
     public int indexOf(Object e) {
-        return 0;
+        int i = 0;
+        while (i<size && !array[i].equals(e)) {
+            i++;//不相等 继续往后遍历
+        }
+        return i < size ? i : -1;
     }
 
     @Override
@@ -63,14 +67,17 @@ public class ArrayList implements List {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
     public int lastIndexOf(Object e) {
-        return 0;
+        int i = size - 1 ;
+        while (i > -1 && !array[i].equals(e)) {
+            i--;//不相等 继续往前遍历
+        }
+        return i > -1 ? i : -1;
     }
-
     @Override
     public void remove(int i) {
 
@@ -83,6 +90,6 @@ public class ArrayList implements List {
 
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 }
