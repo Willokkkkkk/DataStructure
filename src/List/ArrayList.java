@@ -1,5 +1,7 @@
 package List;
 
+import java.util.Arrays;
+
 /**
  * Created by panchaoliang on 2017/7/18.
  * shujujiegou
@@ -40,9 +42,13 @@ public class ArrayList implements List {
 
     @Override
     public void clear() {
-        Object[] newArray = new Object[size];
-        System.arraycopy(array, 0, newArray, 0, this.size);
-        array = newArray;
+//        Object[] newArray = new Object[size];
+//        System.arraycopy(array, 0, newArray, 0, this.size);
+//        array = newArray;
+//        size = 0;
+        //将数组全部填充为null
+        Arrays.fill(array, null);
+        //将元素个数改为0
         size = 0;
     }
 
@@ -62,7 +68,15 @@ public class ArrayList implements List {
 
     @Override
     public void insert(int i, Object e) {
-
+        // 1  xxxxx
+        // 2  xxx xx
+        // 3  xxx0xx
+        if (i>=size && i<0) {
+            throw new RuntimeException(" the index is error!");
+        }
+        if(i+1 > maxLen) expand();
+        System.arraycopy(array, i, array, i + 1, size - i);
+        array[i] = e;
     }
 
     @Override
@@ -80,12 +94,13 @@ public class ArrayList implements List {
     }
     @Override
     public void remove(int i) {
-
+        System.arraycopy(array, i+1, array, i , size - i);
+        size--;
     }
 
     @Override
     public void set(int i, Object e) {
-
+        if (i<size) array[i] = e;
     }
 
     @Override
