@@ -8,21 +8,42 @@ package List;
  */
 public class ArrayList implements List {
 
-    public static final int defLen = 10;//默认的初始大小
+    public static final int defLen = 10;//初始化默认的最大长度
     private int maxLen;//最大长度
     private Object[] array;
-    private int size;
-    public ArrayList() {
+    private int size;//大小
 
+    public ArrayList() {
+        size = 0;
+        maxLen = defLen;
+        array = new Object[defLen];
     }
+
     @Override
     public void add(Object e) {
+        if (size > maxLen) {
+            expand();
+        }
+        array[size] = e;
+        size++;
+    }
 
+    /**
+     * 当顺序表的大小不够时，扩充顺序表的大小
+     */
+    private void expand() {
+        maxLen *= 2;
+        Object[] newArray = new Object[maxLen];
+        for(int i=0;i<this.size;i++) {
+            newArray[i] = array[i];
+        }
+        array = newArray;
     }
 
     @Override
     public void clear() {
 
+        size = 0;
     }
 
     @Override
