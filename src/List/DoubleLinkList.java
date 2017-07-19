@@ -64,6 +64,7 @@ public class DoubleLinkList implements List,Serializable {
        p2.setPriorNode(p);
        p.setNextNode(p2);
        headNode.setPriorNode(p2);
+       size++;
     }
 
     private DlNode index(int i) {
@@ -103,7 +104,7 @@ public class DoubleLinkList implements List,Serializable {
                 break;      // not forever.
             }
         }
-        return index<size?index:-1;
+        return index<size?index-1:-1;
     }
 
     @Override
@@ -141,9 +142,14 @@ public class DoubleLinkList implements List,Serializable {
     public void remove(int i) {
         DlNode p2 = index(i);
         DlNode priorNode = p2.getPriorNode();
-        DlNode nextNode = p2.getNextNode();
-        priorNode.setNextNode(nextNode);
-        nextNode.setPriorNode(priorNode);
+        if (size == i + 1) {
+            priorNode.setNextNode(p2.getNextNode());
+            p2.getNextNode().setPriorNode(priorNode);
+        } else {
+            DlNode nextNode = p2.getNextNode();
+            priorNode.setNextNode(nextNode);
+            nextNode.setPriorNode(priorNode);
+        }
         p2.setPriorNode(null);
         p2.setNextNode(null);
         size--;
@@ -162,9 +168,11 @@ public class DoubleLinkList implements List,Serializable {
 
     @Override
     public String toString() {
-        return "DoubleLinkList{" +
+        for (int i=0; i<size ;i++) {
+            System.out.print("  "+index(i).getData());
+        }
+        return "    DoubleLinkList{" +
                 "size=" + size +
-                ", headNode=" + headNode +
                 '}';
     }
 }

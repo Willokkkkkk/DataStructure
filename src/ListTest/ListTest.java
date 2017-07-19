@@ -16,8 +16,8 @@ public class ListTest {
      */
     public static void main(String args[]) {
 //        List list = new ArrayList();
-        List list = new LinkList();
-        //List list = new DoubleLinkList();
+//        List list = new LinkList();
+        List list = new DoubleLinkList();
         for(int i=0; i<10; i++) {
             list.add(i);
         }
