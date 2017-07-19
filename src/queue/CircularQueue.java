@@ -15,26 +15,32 @@ import java.io.Serializable;
  * 2017/07/19
  */
 public class CircularQueue implements Queue,Serializable {
-    private static  int  DEFAULT_SIZE = 10;
+    private static  int  maxSize = 10;
     private Object[] array = null;
     private int front, rear, size; //队首，队尾标注和队列的大小
 
     public CircularQueue() {
-        array = new Object[DEFAULT_SIZE];
+        array = new Object[maxSize];
         front=rear=size= 0;
     }
 
     @Override
     public void clear() {
-        for(int i=0; i<DEFAULT_SIZE; i++) {
+        for(int i=0; i<maxSize; i++) {
             array[i] = null;
         }
         front=rear=size= 0;
     }
 
     @Override
-    public Object deQueue() {
-        return null;
+    public Object outQueue() {
+        if (size == 0) {
+            throw new RuntimeException("queue is empty.");
+        }
+        Object res = array[front];
+        front = (front + 1) % maxSize;
+        size--;
+        return res;
     }
 
     @Override
@@ -44,17 +50,33 @@ public class CircularQueue implements Queue,Serializable {
 
     @Override
     public Object peek() {
-        return null;
+        if (size == 0) {
+            throw new RuntimeException("queue is empty.");
+        }
+        return array[front];
     }
 
     @Override
-    public void push(Object obj) {
+    public void intoQueue(Object obj) {
+        if (size == 0) {
+            throw new RuntimeException("queue is empty.");
+        }
+        rear = (rear+1)%maxSize;
+        array[rear] = obj;
         size++;
-        front++;
     }
 
     @Override
     public int size() {
         return size;
+    }
+    @Override
+    public String toString() {
+        StringBuilder str= new StringBuilder("[");
+        for(int i=0; i<size; i++) {
+            str.append(array[(front + i) % maxSize]+",  ");
+        }
+        str.append("]");
+        return str.toString();
     }
 }

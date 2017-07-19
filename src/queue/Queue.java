@@ -19,14 +19,14 @@ public interface Queue {
      * 出队列
      * 
      */
-    public Object deQueue();
+    public Object outQueue();
     /**
      * 判断是否为空
      * 
      */
     public boolean isEmpty();
     /**
-     * 取对头元素
+     * 获取front对应的元素
      * 
      */
     public Object peek();
@@ -34,7 +34,7 @@ public interface Queue {
      * 入队列
      * @param obj
      */
-    public void push(Object obj);
+    public void intoQueue(Object obj);
     /**
      * 元素的个数
      * 
