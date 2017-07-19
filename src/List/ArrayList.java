@@ -112,4 +112,11 @@ public class ArrayList implements List {
     public int size() {
         return this.size;
     }
+
+    @Override
+    public String toString() {
+        return "ArrayList{" +
+                "array=" + Arrays.toString(array) +
+                '}';
+    }
 }
