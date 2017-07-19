@@ -87,42 +87,76 @@ public class DoubleLinkList implements List,Serializable {
     }
 
     @Override
-    public Object get(int i) {
-        return null;
+    public Object get(int index) {
+        return index(index).getData();
     }
 
     @Override
     public int indexOf(Object e) {
-        return 0;
+        DlNode p = headNode;
+        int index = 0;
+        while (!e.equals(p.getData())) {
+            p = p.getNextNode();
+            index++;
+            if (index>=size) {
+                index = -1;
+                break;      // not forever.
+            }
+        }
+        return index<size?index:-1;
     }
 
     @Override
     public void insert(int i, Object e) {
-
+        DlNode p = index(i);
+        DlNode p1 = new DlNode(e);
+        p1.setNextNode(p.getNextNode());
+        p1.setPriorNode(p);
+        p.setNextNode(p1);
+        p.getNextNode().setPriorNode(p1);
+        size++;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size==0;
     }
 
     @Override
     public int lastIndexOf(Object e) {
-        return 0;
+        DlNode p = headNode.getPriorNode();
+        int index = size-1;
+        while (!e.equals(p.getData())) {
+            p = p.getPriorNode();
+            index--;
+            if (index<0) {
+                index = -1;
+                break;      // not forever.
+            }
+        }
+        return index<size?index:-1;
     }
 
     @Override
     public void remove(int i) {
-
+        DlNode p2 = index(i);
+        DlNode priorNode = p2.getPriorNode();
+        DlNode nextNode = p2.getNextNode();
+        priorNode.setNextNode(nextNode);
+        nextNode.setPriorNode(priorNode);
+        p2.setPriorNode(null);
+        p2.setNextNode(null);
+        size--;
     }
 
     @Override
     public void set(int i, Object e) {
-
+        DlNode p = index(i);
+        p.setData(e);
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 }
