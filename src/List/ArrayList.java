@@ -24,7 +24,7 @@ public class ArrayList implements List,Serializable {
 
     @Override
     public void add(Object e) {
-        if (size > maxLen) {
+        if (size+1 > maxLen) {
             expand();
         }
         array[size] = e;
@@ -97,8 +97,13 @@ public class ArrayList implements List,Serializable {
     @Override
     public void remove(int i) {
         if (i < size || i >= 0) {
-            System.arraycopy(array, i + 1, array, i, size - i);
-            size--;
+            if (size == i + 1) {  // if you wanna remove last number
+                array[i] = null;
+                size--;
+            } else {
+                System.arraycopy(array, i + 1, array, i, size - i);
+                size--;
+            }
         } else {
             throw new RuntimeException("the index is error!");
         }

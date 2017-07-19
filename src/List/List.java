@@ -17,7 +17,7 @@ package List;
  （9）更改第i个元素
  （10）删除第i个元素，0≤i < n，使原来的第i+1，i+2，…，n–1个元素变为第i，i+1，…，n–2个元素
  */
- interface List {
+ public interface List {
     /**
      * 将元素添加到线性表的末尾
      */
@@ -72,4 +72,4 @@ package List;
      * 
      */
      int size();
-}  
+}
