@@ -98,37 +98,61 @@ public class LinkList implements List ,Serializable{
 
     @Override
     public int indexOf(Object e) {
-
-        return 0;
+        Node res = headNode;
+        int index = 0;
+        while (!e.equals(res.getData())) {
+            res = res.getNextNode();
+            index++;
+        }
+        if(index<size)
+            return index;
+        else
+            return -1;
     }
 
     @Override
-    public void insert(int i, Object e) {
-
+    public void insert(int index, Object e) {
+        if (index >= this.size() || index<0) {
+            throw new RuntimeException("the index is error !");
+        }
+        Node p = index(index);
+        Node p2 = new Node(e);
+        p.setNextNode(p2);
+        p2.setNextNode(p.getNextNode());
+        size++;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size==0;
     }
 
     @Override
     public int lastIndexOf(Object e) {
-        return 0;
+        int index = size - 1;
+        while (!get(index).equals(e)) {
+            index--;
+        }
+        return index>=0?index:-1;
     }
 
     @Override
     public void remove(int i) {
-
+        Node p1 = index(i-1);
+        Node p2 = index(i);
+        Node p3 = index(i+1);
+        p1.setNextNode(p3);
+        p2.setNextNode(null);
     }
 
     @Override
     public void set(int i, Object e) {
-
+        Node p = index(i);
+        p.setData(e);
     }
 
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 }
