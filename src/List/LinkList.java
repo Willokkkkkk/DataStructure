@@ -25,14 +25,19 @@ class Node {
  *
  */
 public class LinkList implements List {
-    Node headNode;  //头结点
-    int size;   //链表的大小
+    private Node headNode;  //头结点
+    private int size;   //链表的大小
 
     public LinkList() {
         this.headNode = new Node();
         size = 0;
     }
+    public LinkList(Object[] datas) {
+        size = datas.length;
+        for (int i = 0; i < size; i++) {
 
+        }
+    }
     @Override
     public void add(Object e) {
 

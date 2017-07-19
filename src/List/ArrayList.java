@@ -54,13 +54,13 @@ public class ArrayList implements List {
 
     @Override
     public Object get(int i) {
-            return   (i > 0 && i < size) ? array[i] : null;
+        return (i > 0 && i < size) ? array[i] : null;
     }
 
     @Override
     public int indexOf(Object e) {
         int i = 0;
-        while (i<size && !array[i].equals(e)) {
+        while (i < size && !array[i].equals(e)) {
             i++;//不相等 继续往后遍历
         }
         return i < size ? i : -1;
@@ -71,10 +71,10 @@ public class ArrayList implements List {
         // 1  xxxxx
         // 2  xxx xx
         // 3  xxx0xx
-        if (i>=size && i<0) {
+        if (i >= size && i < 0) {
             throw new RuntimeException(" the index is error!");
         }
-        if(i+1 > maxLen) expand();
+        if (i + 1 > maxLen) expand();
         System.arraycopy(array, i, array, i + 1, size - i);
         array[i] = e;
     }
@@ -86,21 +86,26 @@ public class ArrayList implements List {
 
     @Override
     public int lastIndexOf(Object e) {
-        int i = size - 1 ;
+        int i = size - 1;
         while (i > -1 && !array[i].equals(e)) {
             i--;//不相等 继续往前遍历
         }
         return i > -1 ? i : -1;
     }
+
     @Override
     public void remove(int i) {
-        System.arraycopy(array, i+1, array, i , size - i);
-        size--;
+        if (i < size || i >= 0) {
+            System.arraycopy(array, i + 1, array, i, size - i);
+            size--;
+        } else {
+            throw new RuntimeException("the index is error!");
+        }
     }
 
     @Override
     public void set(int i, Object e) {
-        if (i<size) array[i] = e;
+        if (i < size) array[i] = e;
     }
 
     @Override
