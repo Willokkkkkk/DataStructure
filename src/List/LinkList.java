@@ -105,7 +105,7 @@ public class LinkList implements List ,Serializable{
             index++;
         }
         if(index<size)
-            return index;
+            return index-1;
         else
             return -1;
     }
@@ -117,8 +117,8 @@ public class LinkList implements List ,Serializable{
         }
         Node p = index(index);
         Node p2 = new Node(e);
-        p.setNextNode(p2);
         p2.setNextNode(p.getNextNode());
+        p.setNextNode(p2);
         size++;
     }
 
