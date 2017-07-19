@@ -1,5 +1,6 @@
 package List;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
@@ -8,7 +9,7 @@ import java.util.Arrays;
  * List
  * 2017/07/18
  */
-public class ArrayList implements List {
+public class ArrayList implements List,Serializable {
 
     public static final int defLen = 10;//初始化默认的最大长度
     private int maxLen;//最大长度

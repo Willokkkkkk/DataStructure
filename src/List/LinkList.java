@@ -1,5 +1,7 @@
 package List;
 
+import java.io.Serializable;
+
 /**
  * Created by panchaoliang on 2017/7/18.
  * data structure
@@ -24,7 +26,7 @@ class Node {
  * @author Administrator
  *
  */
-public class LinkList implements List {
+public class LinkList implements List ,Serializable{
     private Node headNode;  //头结点
     private int size;   //链表的大小
 
