@@ -140,9 +140,10 @@ public class LinkList implements List ,Serializable{
     public void remove(int i) {
         Node p1 = index(i-1);
         Node p2 = index(i);
-        Node p3 = index(i+1);
+        Node p3 = p2.getNextNode();  //if i = last , p3 maybe null
         p1.setNextNode(p3);
         p2.setNextNode(null);
+        size--;
     }
 
     @Override
@@ -154,5 +155,15 @@ public class LinkList implements List ,Serializable{
     @Override
     public int size() {
         return this.size;
+    }
+
+    @Override
+    public String toString() {
+        for (int i=0; i<size ;i++) {
+            System.out.print("  "+index(i).getData());
+        }
+        return "    LinkList{" +
+                "size=" + size +
+                '}';
     }
 }

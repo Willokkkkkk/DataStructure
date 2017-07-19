@@ -159,4 +159,12 @@ public class DoubleLinkList implements List,Serializable {
     public int size() {
         return size;
     }
+
+    @Override
+    public String toString() {
+        return "DoubleLinkList{" +
+                "size=" + size +
+                ", headNode=" + headNode +
+                '}';
+    }
 }

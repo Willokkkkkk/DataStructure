@@ -55,7 +55,7 @@ public class ArrayList implements List,Serializable {
 
     @Override
     public Object get(int i) {
-        return (i > 0 && i < size) ? array[i] : null;
+        return (i >= 0 && i < size) ? array[i] : null;
     }
 
     @Override
