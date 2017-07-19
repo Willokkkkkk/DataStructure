@@ -5,6 +5,7 @@ import java.io.Serializable;
 /**
  * Created by panchaoliang on 2017/7/18.
  * data structure
+ * 单向链表
  * List
  * 2017/07/18
  */
