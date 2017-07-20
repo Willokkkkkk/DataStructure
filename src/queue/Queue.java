@@ -19,7 +19,7 @@ public interface Queue {
      * 出队列
      * 
      */
-    public Object outQueue();
+    public Object deQueue();
     /**
      * 判断是否为空
      * 
@@ -34,7 +34,7 @@ public interface Queue {
      * 入队列
      * @param obj
      */
-    public void intoQueue(Object obj);
+    public void enQueue(Object obj);
     /**
      * 元素的个数
      * 

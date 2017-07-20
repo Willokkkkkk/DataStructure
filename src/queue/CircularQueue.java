@@ -33,7 +33,7 @@ public class CircularQueue implements Queue,Serializable {
     }
 
     @Override
-    public Object outQueue() {
+    public Object deQueue() {
         if (size == 0) {
             throw new RuntimeException("queue is empty.");
         }
@@ -50,14 +50,14 @@ public class CircularQueue implements Queue,Serializable {
 
     @Override
     public Object peek() {
-        if (size == 0) {
+        if (isEmpty()) {
             throw new RuntimeException("queue is empty.");
         }
         return array[front];
     }
 
     @Override
-    public void intoQueue(Object obj) {
+    public void enQueue(Object obj) {
         if (size == 0) {
             throw new RuntimeException("queue is empty.");
         }
