@@ -1,7 +1,7 @@
 package queueTest;
 
 
-import queue.CircularQueue;
+import queue.LinkQueue;
 import queue.Queue;
 
 /**
@@ -18,8 +18,8 @@ public class Test {
          * @param args
          */
         public static void main(String[] args) {
-            //Queue queue = new LinkQueue();
-            Queue queue = new CircularQueue();
+            Queue queue = new LinkQueue();
+//            Queue queue = new CircularQueue();
             for(int i=0; i<10; i++) {
                 queue.enQueue(i);
             }

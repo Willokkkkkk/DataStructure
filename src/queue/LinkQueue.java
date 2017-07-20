@@ -61,10 +61,11 @@ public class LinkQueue implements Queue,Serializable {
     @Override
     public Object deQueue() {
         if(isEmpty()) throw new RuntimeException("the queue is empty!");
+        Object res = front.getNextNode().getData();
         front.setNextNode(front.getNextNode().getNextNode());
         size--;
         if (size<1)   rear = front;
-        return front.getNextNode().getData();
+        return res;
     }
 
     @Override
@@ -91,4 +92,16 @@ public class LinkQueue implements Queue,Serializable {
     public int size() {
         return size;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb= new StringBuilder("[");
+        Node p = front;
+        while((p=p.getNextNode()) != null) {
+            sb.append(p.data + ", ");
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+
 }
