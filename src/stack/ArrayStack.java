@@ -70,9 +70,9 @@ public class ArrayStack implements Stack,Serializable{
 
     @Override
     public Object peek() {
-        if (size()== 0) {
-            throw new RuntimeException("stack is empty.");
-        }
-        return array[top - 1];
+//        if (size()== 0) {
+//            throw new RuntimeException("stack is empty.");
+//        }
+        return array[top - 1];// //if size == 0 ,maybe null
     }
 }

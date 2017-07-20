@@ -64,29 +64,37 @@ public class LinkStack implements Stack, Serializable {
             top = newNode;
         } else {
             newNode.setNextNode(top);
-            top.setNextNode(newNode);
-
+            top = newNode;
         }
         size++;
     }
 
     @Override
     public Object pop() {
-        return null;
+        if (isEmpty()) {
+            throw new RuntimeException("the stack is empty.");
+        }
+        Node res = top.getNextNode();
+
+        Node p = top.getNextNode().getNextNode();
+        top.getNextNode().setNextNode(null);
+        top.setNextNode(p);
+
+        return res.getData();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public Object peek() {
-        return null;
+        return top.getData(); //if size == 0 ,maybe null
     }
 }
