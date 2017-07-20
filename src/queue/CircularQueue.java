@@ -58,11 +58,8 @@ public class CircularQueue implements Queue,Serializable {
 
     @Override
     public void enQueue(Object obj) {
-        if (size == 0) {
-            throw new RuntimeException("queue is empty.");
-        }
-        rear = (rear+1)%maxSize;
         array[rear] = obj;
+        rear = (rear+1)%maxSize;
         size++;
     }
 
