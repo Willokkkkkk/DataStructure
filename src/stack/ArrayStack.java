@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 /**
  * 顺序(堆)栈
+ * 特别注意 top 是指在 最上方元素的 上面
  * @author Administrator
  *
  */
@@ -36,17 +37,25 @@ public class ArrayStack implements Stack,Serializable{
         if (size()==maxSize) {
             expand();
         }
-        array[top] = obj;
+        array[top] = obj; // 0 ,1 ,2 ...
         top++;
     }
 
     private void expand() {
-        maxSize *= 2;
+        Object[] newArray = new Object[2 * maxSize];
+        System.arraycopy(array,0,newArray,0,top);
+        array = newArray;
     }
 
     @Override
     public Object pop() {
-        return null;
+        if (size()== 0) {
+            throw new RuntimeException("stack is empty.");
+        }
+        Object res = array[top-1];
+        array[top - 1] = null;
+        top --;
+        return res;
     }
 
     @Override
@@ -61,6 +70,9 @@ public class ArrayStack implements Stack,Serializable{
 
     @Override
     public Object peek() {
-        return null;
+        if (size()== 0) {
+            throw new RuntimeException("stack is empty.");
+        }
+        return array[top - 1];
     }
 }
