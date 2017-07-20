@@ -13,6 +13,7 @@ import java.io.Serializable;
  * 循环队列中进行出队、入队操作时，头尾指针仍要加1，
  * 朝前移动。只不过当头尾指针指向向量上界（QueueSize-1）时，其加1操作的结果是指向向量的下界0。
  * 2017/07/19
+ *  attention :  暂时没有加入自动增长
  */
 public class CircularQueue implements Queue,Serializable {
     private static  int  maxSize = 10;
