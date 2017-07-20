@@ -74,12 +74,9 @@ public class LinkStack implements Stack, Serializable {
         if (isEmpty()) {
             throw new RuntimeException("the stack is empty.");
         }
-        Node res = top.getNextNode();
-
-        Node p = top.getNextNode().getNextNode();
-        top.getNextNode().setNextNode(null);
-        top.setNextNode(p);
-
+        Node res = top;
+        top = top.getNextNode();
+        size--;
         return res.getData();
     }
 
@@ -96,5 +93,15 @@ public class LinkStack implements Stack, Serializable {
     @Override
     public Object peek() {
         return top.getData(); //if size == 0 ,maybe null
+    }
+    public String toString() {
+        Node node = top;
+           String s = "[";
+        for(int i =0; i <size ; i++) {
+            s += ( node.getData()+" ," );
+            node = node.getNextNode();
+        }
+
+        return  s+"]";
     }
 }

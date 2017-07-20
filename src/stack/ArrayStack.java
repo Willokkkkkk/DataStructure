@@ -17,7 +17,7 @@ import java.util.Arrays;
  *
  */
 public class ArrayStack implements Stack,Serializable{
-    private static int maxSize = 100;
+    private static int maxSize = 10;
     private int top;
     Object[]  array;
 
@@ -74,5 +74,16 @@ public class ArrayStack implements Stack,Serializable{
 //            throw new RuntimeException("stack is empty.");
 //        }
         return array[top - 1];// //if size == 0 ,maybe null
+    }
+
+    @Override
+    public String toString() {
+        String s = "[";
+        for(int i=top-1; i>=0 ; i--) {
+            s = s + array[i];
+            s = s + ",  ";
+        }
+        s = s + "]";
+        return s;
     }
 }

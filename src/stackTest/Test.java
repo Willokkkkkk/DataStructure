@@ -1,7 +1,7 @@
 package stackTest;
 
 
-import stack.ArrayStack;
+import stack.LinkStack;
 import stack.Stack;
 
 /**
@@ -15,8 +15,8 @@ import stack.Stack;
      * @param args
      */
     public static void main(String[] args) {
-        Stack stack = new ArrayStack();
-//        Stack stack = new LinkStack();
+//        Stack stack = new ArrayStack();
+        Stack stack = new LinkStack();
         for(int i=0; i<10; i++) {
             stack.push(i);
         }
