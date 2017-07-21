@@ -50,7 +50,6 @@ public class Tree {
     }
 
 
-
     /**
      * 返回递i个子树
      *
@@ -121,13 +120,26 @@ public class Tree {
     public void setRootData(Object data) {
         this.data = data;
     }
+
     /**
-     * 求树的深度  //todo
+     * 求树的深度  //todo 暂未实现
      *
      * @param tree
-     * @return
+     * @return int
      */
     private int dept(Tree tree) {
         return Integer.parseInt(null);
     }
+
+    /**
+     * 求结点数
+     * 这方法还有点问题，有待完善 //todo 暂未实现
+     *
+     * @param tree
+     * @return
+     */
+    private int size(Tree tree) {
+        return 0;
+    }
+
 }
