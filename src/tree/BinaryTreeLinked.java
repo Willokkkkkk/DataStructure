@@ -124,6 +124,25 @@ public class BinaryTreeLinked implements BinTree {
 
     @Override//求结点数
     public int size() {
-        return 0;
+        return size(this);
     }
+
+    private int size(BinTree btree) {
+        if (btree.isEmpty()) {
+            return 0;
+        } else if (btree.isLeaf()) {
+            return 1;
+        } else {
+            if (!btree.hasLeftTree()) {
+                return size(btree.getRightChild()) + 1;
+            }
+            if (!btree.hasRightTree()) {
+                return size(btree.getLeftChild()) + 1;
+            } else {
+                return size(btree.getRightChild()) + size(btree.getLeftChild()) + 1;
+            }
+        }
+    }
+    /***************************************order**********************************************/
+
 }
