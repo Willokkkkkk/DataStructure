@@ -14,9 +14,7 @@ public class BinaryTreeLinked implements BinTree {
     private BinTree rChild;
 
     public BinaryTreeLinked() {
-        this.data = null;
-        this.lChild = null;
-        this.rChild = null;
+        clearTree();
     }
 
     public BinaryTreeLinked(Object data) {
@@ -145,7 +143,7 @@ public class BinaryTreeLinked implements BinTree {
     }
     /***************************************order**********************************************/
     /**
-     * 前序遍历
+     * 前序遍历 递归实现
      *  根 左 右
      * @param root 根结点
      */
@@ -164,7 +162,7 @@ public class BinaryTreeLinked implements BinTree {
     }
 
     /**
-     * 中序遍历
+     * 中序遍历  递归实现
      * 左 根 右
      * @param root 根结点
      */
@@ -182,7 +180,7 @@ public class BinaryTreeLinked implements BinTree {
     }
 
     /**
-     * 后序遍历
+     * 后序遍历 递归实现
      * 左 右 根
      * @param root 根结点
      */
@@ -197,7 +195,8 @@ public class BinaryTreeLinked implements BinTree {
 
         System.out.print(root.getRootData() + "\t");
     }
-
+//递归算法简洁明了、可读性好，但与非递归算法相比要消耗更多的时间和存储空间。
+    //
     public static void main(String[] args) {
         BinTree btree = new BinaryTreeLinked('A');
         BinTree bt1, bt2, bt3, bt4;
