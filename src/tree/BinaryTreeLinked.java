@@ -5,6 +5,7 @@ package tree;
  * data structure
  * 二叉链表的实现
  * tree
+ * 完全二叉树：叶节点只能出现在最下层和次下层，并且最下面一层的结点都集中在该层最左边的若干位置的二叉树
  * 2017/07/21
  */
 public class BinaryTreeLinked implements BinTree {
