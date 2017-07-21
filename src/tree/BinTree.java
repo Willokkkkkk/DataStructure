@@ -11,79 +11,105 @@ package tree;
 public interface BinTree {
     /**
      * 添加左子树
+     *
      * @param lChild 左子树
      */
-      void addLeftTree(BinTree lChild);
+    void addLeftTree(BinTree lChild);
+
     /**
      * 添加右子树
+     *
      * @param rchild 右子树
      */
-      void addRightTree(BinTree rchild) ;
+    void addRightTree(BinTree rchild);
+
     /**
      * 置空树
      */
-      void clearTree();
+    void clearTree();
+
     /**
      * 求树的深度
+     *
      * @return 树的深度
      */
-      int dept();
+    int dept();
+
     /**
      * 求左孩子 结点
+     *
      * @return
      */
-      BinTree getLeftChild();
+    BinTree getLeftChild();
 
     /**
      * 求右孩子结点
+     *
      * @return
      */
-      BinTree getRightChild();
+    BinTree getRightChild();
+
     /**
      * 获得根结点的数据
+     *
      * @return
      */
-      Object getRootData();
+    Object getRootData();
+
     /**
      * 是否有左子树
+     *
      * @return
      */
-      boolean hasLeftTree();
+    boolean hasLeftTree();
+
     /**
      * 是否有右子树
+     *
      * @return
      */
-      boolean hasRightTree();
+    boolean hasRightTree();
+
     /**
      * 判断是否为空树
+     *
      * @return 如果为空，返回true,否则返回false
      */
-      boolean isEmpty();
+    boolean isEmpty();
+
     /**
      * 判断是否为叶子结点
+     *
      * @return
      */
-      boolean isLeaf();
+    boolean isLeaf();
+
     /**
      * 删除左子树
      */
-      void removeLeftChild();
+    void removeLeftChild();
+
     /**
      * 删除右子树
      */
-      void removeRightChild();
+    void removeRightChild();
+
     /**
      * 获得树根
+     *
      * @return 树的根
      */
-      BinTree root();
+    BinTree root();
+
     /**
      * 设置根结点的数据
      */
-      void setRootData(Object data);
+    void setRootData(Object data);
+
     /**
      * 求结点数
+     *
      * @return 结点的个数
      */
-      int size();
+    int size();
 }

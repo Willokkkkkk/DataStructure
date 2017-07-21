@@ -77,6 +77,7 @@ public class Tree {
     public Tree getLastChild() {
         return childs.get(childs.size() - 1);
     }
+
     /**
      * 求 结点
      *
@@ -85,6 +86,7 @@ public class Tree {
     public List<Tree> getChilds() {
         return childs;
     }
+
     /**
      * 获得根结点的数据
      *
@@ -151,27 +153,29 @@ public class Tree {
     /***************************************order**********************************************/
     /**
      * 先根遍历
+     *
      * @param root 要的根结点
      */
     private static void preOrder(Tree root) {
         if (!root.isEmpty()) {
-            System.out.print(" " +root.getRootData());
+            System.out.print(" " + root.getRootData());
             List<Tree> childs = root.getChilds();
             for (Tree child : childs) {
-                if (child !=null) {
+                if (child != null) {
                     preOrder(child);
                 }
             }
         }
     }
+
     private static void postOrder(Tree root) {
-        if(!root.isEmpty()) {
-            for(Tree child : root.getChilds()) {
-                if(child != null) {
+        if (!root.isEmpty()) {
+            for (Tree child : root.getChilds()) {
+                if (child != null) {
                     preOrder(child);
                 }
             }
-            System.out.print(" " +root.getRootData());
+            System.out.print(" " + root.getRootData());
         }
     }
 
@@ -200,8 +204,8 @@ public class Tree {
 
 
         System.out.println("前根遍历：");
-          preOrder(root);
+        preOrder(root);
         System.out.println("\n后根遍历：");
-         postOrder(root);
+        postOrder(root);
     }
 }
