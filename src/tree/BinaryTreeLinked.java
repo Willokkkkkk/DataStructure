@@ -133,13 +133,12 @@ public class BinaryTreeLinked implements BinTree {
         } else if (btree.isLeaf()) {
             return 1;
         } else {
-            if (!btree.hasLeftTree()) {
+            if(btree.getLeftChild() == null) {
                 return size(btree.getRightChild()) + 1;
-            }
-            if (!btree.hasRightTree()) {
+            } else if(btree.getRightChild() == null) {
                 return size(btree.getLeftChild()) + 1;
             } else {
-                return size(btree.getRightChild()) + size(btree.getLeftChild()) + 1;
+                return size(btree.getLeftChild()) + size(btree.getRightChild()) + 1;
             }
         }
     }
