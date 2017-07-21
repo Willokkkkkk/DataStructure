@@ -150,6 +150,8 @@ public class BinaryTreeLinked implements BinTree {
      * @param root 根结点
      */
     public static void preOrder(BinTree root) {
+        if (root.isEmpty()) { return;
+        }
         System.out.print(root.getRootData() + "\t");
 
         if (root.getLeftChild() != null) {
@@ -167,6 +169,8 @@ public class BinaryTreeLinked implements BinTree {
      * @param root 根结点
      */
     public static void inOrder(BinTree root) {
+        if (root.isEmpty()) { return;
+        }
         if (root.getLeftChild() != null)
             inOrder(root.getLeftChild());
 
@@ -183,6 +187,8 @@ public class BinaryTreeLinked implements BinTree {
      * @param root 根结点
      */
     public static void postOrder(BinTree root) {
+        if (root.isEmpty()) { return;
+        }
         if (root.getLeftChild() != null)
             postOrder(root.getLeftChild());
 
