@@ -146,7 +146,7 @@ public class BinaryTreeLinked implements BinTree {
     /***************************************order**********************************************/
     /**
      * 前序遍历
-     *
+     *  根 左 右
      * @param root 根结点
      */
     public static void preOrder(BinTree root) {
@@ -163,7 +163,7 @@ public class BinaryTreeLinked implements BinTree {
 
     /**
      * 中序遍历
-     *
+     * 左 根 右
      * @param root 根结点
      */
     public static void inOrder(BinTree root) {
@@ -179,7 +179,7 @@ public class BinaryTreeLinked implements BinTree {
 
     /**
      * 后序遍历
-     *
+     * 左 右 根
      * @param root 根结点
      */
     public static void postOrder(BinTree root) {
