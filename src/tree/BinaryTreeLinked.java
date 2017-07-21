@@ -144,5 +144,87 @@ public class BinaryTreeLinked implements BinTree {
         }
     }
     /***************************************order**********************************************/
+    /**
+     * 前序遍历
+     *
+     * @param root 根结点
+     */
+    public static void preOrder(BinTree root) {
+        System.out.print(root.getRootData() + "\t");
+
+        if (root.getLeftChild() != null) {
+            preOrder(root.getLeftChild());
+        }
+
+        if (root.getRightChild() != null) {
+            preOrder(root.getRightChild());
+        }
+    }
+
+    /**
+     * 中序遍历
+     *
+     * @param root 根结点
+     */
+    public static void inOrder(BinTree root) {
+        if (root.getLeftChild() != null)
+            inOrder(root.getLeftChild());
+
+        System.out.print(root.getRootData() + "\t");
+
+        if (root.getRightChild() != null) {
+            inOrder(root.getRightChild());
+        }
+    }
+
+    /**
+     * 后序遍历
+     *
+     * @param root 根结点
+     */
+    public static void postOrder(BinTree root) {
+        if (root.getLeftChild() != null)
+            postOrder(root.getLeftChild());
+
+        if (root.getRightChild() != null)
+            postOrder(root.getRightChild());
+
+        System.out.print(root.getRootData() + "\t");
+    }
+
+    public static void main(String[] args) {
+        BinTree btree = new BinaryTreeLinked('A');
+        BinTree bt1, bt2, bt3, bt4;
+        bt1 = new BinaryTreeLinked('B');
+        btree.addLeftTree(bt1);
+        bt2 = new BinaryTreeLinked('D');
+        bt1.addLeftTree(bt2);
+
+        bt3 = new BinaryTreeLinked('C');
+        btree.addRightTree(bt3);
+        bt4 = new BinaryTreeLinked('E');
+        bt3.addLeftTree(bt4);
+        bt4 = new BinaryTreeLinked('F');
+        bt3.addRightTree(bt4);
+
+        System.out.println("树的深度：" + btree.dept());
+        System.out.println("树的结点数：" + btree.size());
+        System.out.println("是否为空树：" + btree.isEmpty());
+        System.out.println("是否为叶子结点：" + btree.isLeaf());
+        System.out.println("最左下边结点是否为叶子结点：" + btree.getRightChild().getRightChild().isLeaf());
+        System.out.println("root结点：" + btree.root());
+
+
+        System.out.println("\n前序遍历：");
+        preOrder(btree);
+        System.out.println("\n中序遍历：");
+        inOrder(btree);
+        System.out.println("\n后序遍历：");
+        postOrder(btree);
+
+        btree.removeLeftChild();
+        System.out.println("\n删除左子树后中序遍历为：");
+        inOrder(btree);
+    }
 
 }
