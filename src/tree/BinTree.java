@@ -13,77 +13,77 @@ public interface BinTree {
      * 添加左子树
      * @param lChild 左子树
      */
-    public void addLeftTree(BinTree lChild);
+      void addLeftTree(BinTree lChild);
     /**
      * 添加右子树
      * @param rchild 右子树
      */
-    public void addRightTree(BinTree rchild) ;
+      void addRightTree(BinTree rchild) ;
     /**
      * 置空树
      */
-    public void clearTree();
+      void clearTree();
     /**
      * 求树的深度
      * @return 树的深度
      */
-    public int dept();
+      int dept();
     /**
      * 求左孩子 结点
      * @return
      */
-    public BinTree getLeftChild();
+      BinTree getLeftChild();
 
     /**
      * 求右孩子结点
      * @return
      */
-    public BinTree getRightChild();
+      BinTree getRightChild();
     /**
      * 获得根结点的数据
      * @return
      */
-    public Object getRootData();
+      Object getRootData();
     /**
      * 是否有左子树
      * @return
      */
-    public boolean hasLeftTree();
+      boolean hasLeftTree();
     /**
      * 是否有右子树
      * @return
      */
-    public boolean hasRightTree();
+      boolean hasRightTree();
     /**
      * 判断是否为空树
      * @return 如果为空，返回true,否则返回false
      */
-    public boolean isEmpty();
+      boolean isEmpty();
     /**
      * 判断是否为叶子结点
      * @return
      */
-    public boolean isLeaf();
+      boolean isLeaf();
     /**
      * 删除左子树
      */
-    public void removeLeftChild();
+      void removeLeftChild();
     /**
      * 删除右子树
      */
-    public void removeRightChild();
+      void removeRightChild();
     /**
      * 获得树根
      * @return 树的根
      */
-    public BinTree root();
+      BinTree root();
     /**
      * 设置根结点的数据
      */
-    public void setRootData(Object data);
+      void setRootData(Object data);
     /**
      * 求结点数
      * @return 结点的个数
      */
-    public int size();
+      int size();
 }
