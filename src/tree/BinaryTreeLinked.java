@@ -1,5 +1,7 @@
 package tree;
 
+import stack.ArrayStack;
+
 /**
  * Created by panchaoliang on 2017/7/21.
  * data structure
@@ -154,13 +156,9 @@ public class BinaryTreeLinked implements BinTree {
         }
         System.out.print(root.getRootData() + "\t");
 
-        if (root.getLeftChild() != null) {
             preOrder(root.getLeftChild());
-        }
 
-        if (root.getRightChild() != null) {
             preOrder(root.getRightChild());
-        }
     }
 
     /**
@@ -173,14 +171,11 @@ public class BinaryTreeLinked implements BinTree {
         if (root.isEmpty()) {
             return;
         }
-        if (root.getLeftChild() != null)
             inOrder(root.getLeftChild());
 
         System.out.print(root.getRootData() + "\t");
 
-        if (root.getRightChild() != null) {
             inOrder(root.getRightChild());
-        }
     }
 
     /**
@@ -193,16 +188,25 @@ public class BinaryTreeLinked implements BinTree {
         if (root.isEmpty()) {
             return;
         }
-        if (root.getLeftChild() != null)
             postOrder(root.getLeftChild());
 
-        if (root.getRightChild() != null)
             postOrder(root.getRightChild());
 
         System.out.print(root.getRootData() + "\t");
     }
 
     //递归算法简洁明了、可读性好，但与非递归算法相比要消耗更多的时间和存储空间。
+
+    /**
+     * 中序遍历  非递归实现
+     * 左 根 右
+     */
+    public static void inOrder2(BinTree root) {
+        ArrayStack stack = new ArrayStack();
+
+    }
+
+
     //
     public static void main(String[] args) {
         BinTree btree = new BinaryTreeLinked('A');
