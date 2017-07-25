@@ -81,13 +81,12 @@ public class BinaryTreeLinked implements BinTree {
 
     @Override
     public boolean hasLeftTree() {
-
-        return lChild.isEmpty();
+        return lChild != null;
     }
 
     @Override
     public boolean hasRightTree() {
-        return rChild.isEmpty();
+        return rChild != null;
     }
 
     @Override
@@ -155,10 +154,12 @@ public class BinaryTreeLinked implements BinTree {
             return;
         }
         System.out.print(root.getRootData() + "\t");
-
+        if (root.hasLeftTree()) {
             preOrder(root.getLeftChild());
-
+        }
+        if (root.hasRightTree()) {
             preOrder(root.getRightChild());
+        }
     }
 
     /**
@@ -171,11 +172,13 @@ public class BinaryTreeLinked implements BinTree {
         if (root.isEmpty()) {
             return;
         }
-            inOrder(root.getLeftChild());
-
+        if (root.hasLeftTree()) {
+            preOrder(root.getLeftChild());
+        }
         System.out.print(root.getRootData() + "\t");
-
-            inOrder(root.getRightChild());
+        if (root.hasRightTree()) {
+            preOrder(root.getRightChild());
+        }
     }
 
     /**
@@ -188,22 +191,83 @@ public class BinaryTreeLinked implements BinTree {
         if (root.isEmpty()) {
             return;
         }
-            postOrder(root.getLeftChild());
+        if (root.hasLeftTree()) {
+            preOrder(root.getLeftChild());
+        }
 
-            postOrder(root.getRightChild());
-
+        if (root.hasRightTree()) {
+            preOrder(root.getRightChild());
+        }
         System.out.print(root.getRootData() + "\t");
     }
 
     //递归算法简洁明了、可读性好，但与非递归算法相比要消耗更多的时间和存储空间。
 
     /**
-     * 中序遍历  非递归实现
+     * 前序遍历 非递归实现
+     * 根 左 右            //todo not understand
+     *
+     * @param root 根结点
+     */
+    public static void preOrder2(BinTree root) {
+        ArrayStack stack = new ArrayStack();
+        while (!root.isEmpty()) {
+            System.out.println(" " + root.getRootData());
+            stack.push(root);//将根结点入栈
+            root = root.getLeftChild();
+        }
+        if (!stack.isEmpty()) {
+            stack.pop();
+            root = root.getRightChild();
+        }
+    }
+
+    /**
+     * 中序遍历  非递归实现  //todo not understand
      * 左 根 右
      */
     public static void inOrder2(BinTree root) {
         ArrayStack stack = new ArrayStack();
+        while (!root.isEmpty() || !stack.isEmpty()) {
+            while (!root.isEmpty()) {//一直向左走
+                stack.push(root);//将根结点入栈
+                root = root.getLeftChild();//获得left child
+            }
+            if (!stack.isEmpty()) {
+                stack.pop();//取出栈顶根结点访问之
+                System.out.println(" " + root.getRootData());
+                root = root.getRightChild();//转向根的右子树进行遍历
+            }
 
+        }
+    }
+
+    /**
+     * 后序遍历 非递归实现
+     * 左 右 根
+     * //todo not understand
+     *
+     * @param root 根结点
+     */
+    public static void postOrder2(BinTree root) {
+        ArrayStack stack = new ArrayStack();
+        while (!root.isEmpty() || !stack.isEmpty()) {
+            while (!root.isEmpty()) {//先左后右不断深入
+                stack.push(root);//将根节点入栈
+                root = root.hasLeftTree() ? root.getLeftChild() : root.getRightChild();
+            }
+            if (!stack.isEmpty()) {
+                Object o = stack.pop();
+                System.out.println(" " + o);
+            }
+            //满足条件时，说明栈顶根节点右子树已访问，应出栈访问之
+//            while (!stack.isEmpty()&&(new BinaryTreeLinked(stack.peek()).getRightChild().getRootData()== o){
+            Object o = stack.pop();
+            System.out.println(" " + o);
+        }
+        //转向栈顶根结点的右子树继续后序遍历
+//            if (!stack.isEmpty()) p = ((BinTreeNode)stack.peek()).getRChild();
+//            else p = null;
     }
 
 
@@ -235,6 +299,7 @@ public class BinaryTreeLinked implements BinTree {
         preOrder(btree);
         System.out.println("\n中序遍历：");
         inOrder(btree);
+//        inOrder2(btree);
         System.out.println("\n后序遍历：");
         postOrder(btree);
 
