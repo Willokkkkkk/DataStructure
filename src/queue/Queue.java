@@ -16,30 +16,30 @@ public interface Queue {
     /**
      * 清空队列
      */
-    public void clear();
+    void clear();
     /**
      * 出队列
      * 
      */
-    public Object deQueue();
+    Object deQueue();
     /**
      * 判断是否为空
      * 
      */
-    public boolean isEmpty();
+    boolean isEmpty();
     /**
      * 获取front对应的元素
      * 
      */
-    public Object peek();
+    Object peek();
     /**
      * 入队列
      * @param obj
      */
-    public void enQueue(Object obj);
+    void enQueue(Object obj);
     /**
      * 元素的个数
      * 
      */
-    public int size();
+    int size();
 }

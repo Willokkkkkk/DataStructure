@@ -91,10 +91,7 @@ public class BinaryTreeLinked implements BinTree {
 
     @Override
     public boolean isEmpty() {
-        if ((lChild == null && rChild == null && data == null)) {
-            return true;
-        }
-        return false;
+        return (lChild == null && rChild == null && data == null);
     }
 
     @Override

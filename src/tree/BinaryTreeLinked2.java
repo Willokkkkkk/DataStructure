@@ -119,7 +119,6 @@ public class BinaryTreeLinked2 implements Serializable {
     /********** 与parent相关的方法 **********/
     /**
      *  取父节点
-     * @return
      */
     public BinaryTreeLinked2 getParent() {
         return parent;
@@ -140,66 +139,64 @@ public class BinaryTreeLinked2 implements Serializable {
         parent.updateSize();
         parent = null;
     }
-    //********** 与lChild相关的方法 ********/  
+    //********** 与lChild相关的方法 ********/
     /**
-     *  取左孩子 
-     * @return
+     *  取左孩子
      */
     public BinaryTreeLinked2 getLChild() {
         return lChild;
     }
 
     /**
-     *  设置当前结点的左孩子，返回原左孩子 
+     *  设置当前结点的左孩子，返回原左孩子
      * @param lc
-     * @return
      */
     public BinaryTreeLinked2 setLChild(BinaryTreeLinked2 lc) {
         BinaryTreeLinked2 oldLC = this.lChild;
         if (hasLChild()) {
             lChild.sever();
-        } // 断开当前左孩子与结点的关系  
+        } // 断开当前左孩子与结点的关系
         if (null != lc) {
-            lc.sever(); // 判断lc与其父节点的关系  
-            this.lChild = lc; // 确定父子关系  
+            lc.sever(); // 判断lc与其父节点的关系
+            this.lChild = lc; // 确定父子关系
             lc.parent = this;
-            this.updateHeight(); // 更新当前结点及其祖先的高度  
-            this.updateSize(); // 更新当前结点及其祖先的规模  
+            this.updateHeight(); // 更新当前结点及其祖先的高度
+            this.updateSize(); // 更新当前结点及其祖先的规模
         }
-        return oldLC; // 返回原左孩子  
+        return oldLC; // 返回原左孩子
     }
-    //********** 与rChild相关的方法 *********/  
+    //********** 与rChild相关的方法 *********/
     /**
-     *  取右孩子 
-     * @return
+     *  取右孩子
      */
     public BinaryTreeLinked2 getRChild() {
         return rChild;
     }
 
     /**
-     *  设置当前结点为右孩子，返回原右孩子 
+     *  设置当前结点为右孩子，返回原右孩子
      * @param rc
-     * @return
      */
     public BinaryTreeLinked2 setRChild(BinaryTreeLinked2 rc) {
         BinaryTreeLinked2 oldRC = this.rChild;
         if (hasRChild()) {
             rChild.sever();
-        } // 断开当前右孩子与结点的关系  
+        } // 断开当前右孩子与结点的关系
         if (null != rc) {
-            rc.sever(); // 断开rc与其父节点的关系  
-            this.rChild = rc; // 确定父子关系  
+            rc.sever(); // 断开rc与其父节点的关系
+            this.rChild = rc; // 确定父子关系
             rc.parent = this;
-            this.updateHeight(); // 更新当前结点及其祖先的高度  
-            this.updateSize(); // 更新当前结点及其祖先的规模  
+            this.updateHeight(); // 更新当前结点及其祖先的高度
+            this.updateSize(); // 更新当前结点及其祖先的规模
         }
-        return oldRC; // 返回原右孩子  
+        return oldRC; // 返回原右孩子
     }
     /**
-     * 重写toString方法 
+     * 重写toString方法
      */
     public String toString() {
         return "" + data;
     }
+
+    /********** bian的方法 **********/
 }
