@@ -1,6 +1,4 @@
-package ListTest;
-
-import List.*;
+package List;
 
 /**
  * Created by panchaoliang on 2017/7/19.

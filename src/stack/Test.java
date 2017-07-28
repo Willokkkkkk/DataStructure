@@ -1,8 +1,5 @@
-package stackTest;
+package stack;
 
-
-import stack.LinkStack;
-import stack.Stack;
 
 /**
  * Created by panchaoliang on 2017/7/20.
@@ -11,7 +8,7 @@ import stack.Stack;
  * 2017/07/20
  */public class Test {
     /**
-     * 测试堆栈
+     *  测试堆栈
      * @param args
      */
     public static void main(String[] args) {

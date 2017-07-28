@@ -1,8 +1,5 @@
-package queueTest;
+package queue;
 
-
-import queue.LinkQueue;
-import queue.Queue;
 
 /**
  * Created by panchaoliang on 2017/7/20.
