@@ -8,6 +8,7 @@ import stack.ArrayStack;
  * 二叉链表实现的二叉树
  * tree
  * 完全二叉树：叶节点只能出现在最下层和次下层，并且最下面一层的结点都集中在该层最左边的若干位置的二叉树
+ * 所有的遍历都有 递归实现 和 非递归实现
  * 2017/07/21
  */
 public class BinaryTreeLinked implements BinTree {
