@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 /**
  * 顺序(堆)栈
+ * 数组实现的stack
  * 特别注意 top 是指在 最上方元素的 上面
  * @author Administrator
  *

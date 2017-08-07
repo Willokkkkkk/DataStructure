@@ -6,6 +6,7 @@ import java.io.Serializable;
  * Created by panchaoliang on 2017/7/20.
  * data structure
  * stack
+ * 单链表实现的stack
  * 2017/07/20
  */
 class Node {
